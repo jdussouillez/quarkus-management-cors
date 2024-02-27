@@ -1,0 +1,22 @@
+<div>
+    <h1>Hello</h1>
+    <div>
+        <input type="text" [(ngModel)]="locale" placeholder="Locale" />
+    </div>
+    <hr />
+    <div>
+        <h2>GET</h2>
+        <div>
+            <button (click)="getHello()">Run GET request</button>
+            <p>Result = {{helloResult}}</p>
+        </div>
+    </div>
+    <hr/>
+    <div>
+        <h2>POST</h2>
+        <div>
+            <input type="text" [(ngModel)]="helloValue" placeholder="Value" />
+            <button (click)="addHello()">Run POST request (and GET after)</button>
+        </div>
+    </div>
+</div>

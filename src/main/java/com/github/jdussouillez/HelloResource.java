@@ -2,7 +2,6 @@ package com.github.jdussouillez;
 
 import io.smallrye.mutiny.Uni;
 import jakarta.inject.Inject;
-import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
@@ -28,12 +27,5 @@ public class HelloResource {
     @Produces(MediaType.TEXT_PLAIN)
     public Uni<Void> add(@PathParam("locale") final String locale, final String hello) {
         return helloService.add(locale, hello);
-    }
-
-    @DELETE
-    @Path("{locale}")
-    @Produces(MediaType.TEXT_PLAIN)
-    public Uni<Void> delete(@PathParam("locale") final String locale) {
-        return helloService.delete(locale);
     }
 }
