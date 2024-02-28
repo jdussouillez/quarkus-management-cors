@@ -1,0 +1,7 @@
+---
+ngVersion: 17.2.2
+apiModulePrefix: frontapp
+useSingleRequestParameter: true
+stringEnums: true
+fileNaming: kebab-case
+enumPropertyNaming: original

@@ -8,6 +8,7 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
+import org.eclipse.microprofile.openapi.annotations.Operation;
 
 @Path("hello")
 public class HelloResource {
@@ -18,6 +19,7 @@ public class HelloResource {
     @GET
     @Path("{locale}")
     @Produces(MediaType.TEXT_PLAIN)
+    @Operation(operationId = "hello")
     public Uni<String> hello(@PathParam("locale") final String locale) {
         return helloService.hello(locale);
     }
@@ -25,6 +27,7 @@ public class HelloResource {
     @POST
     @Path("{locale}")
     @Produces(MediaType.TEXT_PLAIN)
+    @Operation(operationId = "addHello")
     public Uni<Void> add(@PathParam("locale") final String locale, final String hello) {
         return helloService.add(locale, hello);
     }

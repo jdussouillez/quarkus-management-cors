@@ -42,6 +42,10 @@
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-resteasy-reactive-jackson</artifactId>
         </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-smallrye-openapi</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
@@ -68,6 +72,26 @@
                             <goal>generate-code</goal>
                             <goal>generate-code-tests</goal>
                         </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator-maven-plugin</artifactId>
+                <version>7.0.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>${project.basedir}/target/openapi/openapi.json</inputSpec>
+                            <generatorName>typescript-angular</generatorName>
+                            <output>${project.basedir}/frontapp/src/app/modules/api/openapi-client/</output>
+                            <configurationFile>${project.basedir}/frontapp/openapi/angular-typescript.yml</configurationFile>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
